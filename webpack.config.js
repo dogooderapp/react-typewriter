@@ -1,3 +1,5 @@
+var path = require('path')
+
 module.exports = {
   entry: './src',
   resolve: {
@@ -12,7 +14,7 @@ module.exports = {
     }
   },
   output: {
-    path: './build',
+    path: path.resolve(__dirname, 'build'),
     filename: 'react-typewriter.js',
     library: 'TypeWriter',
     libraryTarget: 'umd'
@@ -21,7 +23,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /(node_modules)/,
-      loader: 'babel?presets[]=react,presets[]=es2015,plugins[]=transform-object-rest-spread,plugins[]=add-module-exports'
+      loader: 'babel-loader?presets[]=react,presets[]=es2015,plugins[]=transform-object-rest-spread,plugins[]=add-module-exports'
     }]
   }
 };
