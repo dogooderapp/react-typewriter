@@ -101,7 +101,9 @@ class TypeWriter extends React.Component {
     const {
       visibleChars
     } = this.state;
-    const container = <span {...props}>{children}</span>;
+    let spanProps = Object.assign({}, props);
+    Object.keys(TypeWriter.propTypes).forEach(k => delete spanProps[k]);
+    const container = <span {...spanProps}>{children}</span>;
     const hideStyle = fixed ? {visibility: 'hidden'} : {display: 'none'};
 
     return styleComponentSubstring(container, hideStyle, visibleChars);
@@ -134,6 +136,7 @@ TypeWriter.propTypes = {
       return new Error('typing property must be an integer between 1 and -1');
     }
   },
+  initDelay: React.PropTypes.number,
   maxDelay: React.PropTypes.number,
   minDelay: React.PropTypes.number,
   onTypingEnd: React.PropTypes.func,
