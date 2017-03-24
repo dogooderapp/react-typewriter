@@ -16,8 +16,7 @@ export var styleComponentSubstring = (() => {
         cloneProps;
 
     if (stamp) {
-
-      if (_index >= _start && (!_end || _index < _end)) {
+      if (_index !== 0 && _index >= _start && (!_end || _index < _end)) {
         cloneProps = {
           style: Object.assign(style || {}, _styles)
         };
