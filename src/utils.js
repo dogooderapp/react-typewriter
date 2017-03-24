@@ -12,7 +12,7 @@ export var styleComponentSubstring = (() => {
   // the start/end with a styled span.
   function alterComponent(component) {
 
-    let {children, stamp, style} = component.props,
+    let {children, 'data-stamp': stamp, style} = component.props,
         cloneProps;
 
     if (stamp) {
@@ -134,7 +134,7 @@ export var componentTokenAt = (() => {
       if (typeof child !== 'string') {
 
         // treat Stamp components as a single token.
-        if (child.props.stamp) {
+        if (child.props['data-stamp']) {
           if (!_index) {
             token = child;
           } else {

@@ -119,7 +119,7 @@ default: `none`
 
 This callback is called once the typing animation has completed. This is when all text has been either revealed or erased.
 
-### props.stamp
+### data-stamp
 
 type: `Boolean`
 
@@ -130,7 +130,7 @@ Here, `World!` will be stamped onto the page instead of typed out:
 ```jsx
 <TypeWriter typing={1}>
   Hello
-  <span stamp>World!</span>
+  <span data-stamp>World!</span>
 </TypeWriter>
 ```
 
